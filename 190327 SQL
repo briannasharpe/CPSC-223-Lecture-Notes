@@ -1,0 +1,9 @@
+Create table Person (firstName varchar(10), lastName varchar(10), SSN int primary key)
+
+insert into Person (firstName, lastName, SSN) values ('Janet', 'Sampson', 34767877)
+
+select * from Person where firstName ='John'
+
+update Person set firstName='Albert'where firstName='John' and lastName='Chen'
+
+delete from Person where SSN=347595577

@@ -1,0 +1,7 @@
+select * from Person where lastName='Chen'
+
+insert into Person (firstName, lastName, ssn) values ('Amy', 'Chen', 23456)
+
+update Person set ssn=67854 where firstName='Amy' and lastName='Chen'
+
+delete from Person where 

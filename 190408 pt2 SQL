@@ -1,0 +1,15 @@
+select * from Person
+
+create table Car (Make varchar(10), LicenseNo varchar(10))
+
+drop table Car
+
+insert into Person values('Amy', 'Chen', 1247478)
+
+insert into Car values('Ford', 'A2374848')
+
+select * from Person
+
+select * from Car
+
+update Person ssn=374848 where firstName='John'
