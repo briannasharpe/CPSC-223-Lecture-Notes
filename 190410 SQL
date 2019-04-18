@@ -1,0 +1,3 @@
+CREATE TABLE Person (firstName varchar(10), lastName varchar(10), SSN int)
+
+CREATE TABLE Car (Make varchar(10), vin varchar(10), 
