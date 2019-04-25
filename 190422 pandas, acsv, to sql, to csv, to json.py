@@ -12,13 +12,10 @@ output/input    .csv     SQL     JSON
 .cs               x       x       .
 SQL               x       .       .
 JSON             (x)     (x)      .
-
-
-
-
 """
 
 import pandas as pd
+import sqlite3
 
 data = pd.read_csv('zoo.csv')
 
@@ -31,13 +28,13 @@ print(data.index) # row id
 print('=======')
 #print(data) # everything
 print('First six rows : ', data.head(6))
-print('Last six rows : ', data.last(6))
+print('Last six rows : ', data.tail(6))
 
 col_data = data['animal']
 print(type(col_data))
 print(col_data)
 
-col_data = data[['animal', 'water_need']
+col_data = data[['animal', 'water_need']]
 print(type(col_data))
 print(col_data) # data frame
 
@@ -54,12 +51,12 @@ row_data = data.loc[3:10, 'animal']
 print(type(row_data)) # series (row number = index)
 print(row_data)
 
-row_data = data_iloc[3:5, 0] # variation of loc
+row_data = data.iloc[3:5, 0] # variation of loc
 print(type(row_data)) # series
 print(row_data)
 
 conn = sqlite3.connect('190410.db')
-pd.to_sql('zoo', con=conn, if_exists='replace') # write data to sql
+data.to_sql('zoo', con=conn, if_exists='replace') # write data to sql
 
 """
 select * from zoo
@@ -67,7 +64,7 @@ select * from zoo
 select * from Person
 """
 
-df = pd_read_sql_query('SELECT * FROM Person', conn)
+df = pd.read_sql_query('SELECT * FROM Person', conn)
 print (df)
 
 df.to_csv('person.csv') # write to csv file
